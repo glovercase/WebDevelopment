@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html"; charset="utf-8" />
+    <title>Status Posting System</title>
+  </head>
+  <body>
+    <h1>Status Posting System</h1>
+    <form action="/poststatusprocess.php" method="post">
+      Status Code (required): <input type="text" name="Status Code" id="stauscode" required><br>
+      Status (required): <input type="text" name="status" id="status" required><br>
+      Share: <input type="radio" name="share" value="public" id="public" > Public
+             <input type="radio" name="share" value="friends" id="friends"> Friends
+             <input type="radio" name="share" value="onlyme" id="onlyme"> Only Me <br>
+      Date:  <input type="date" name="date" value="<?php echo date("Y-m-d"); ?>" id="date"<br>
+      Permission Type: <input type="checkbox" name="permission" value="allow like" id="allowlike"> Allow Like
+                       <input type="checkbox" name="permission" value="allow comment" id="allowcomment"> Allow Comment
+                       <input type="checkbox" name="permission" value="allow share" id="allowshare"> Allow Share <br>
+              <input type="submit" value="Post">
+              <input type="clear" value="Reset">
+    </form>
+    <a href="index.html">Return to Home Page</a></br>
+  </body>
+</html>
