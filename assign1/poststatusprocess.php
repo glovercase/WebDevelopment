@@ -28,8 +28,36 @@
 		$statuscode    = $_POST["statuscode"];
     $status	       = $_POST["status"];
 		$share	       = $_POST["share"];
+    $checkStatusCode = mysql_query("SELECT statuscode from posts where statuscode = '$statuscode'");
+    if(!$checkStatusCode){
+      die('Query failed to execute');
+    }
+    if(mysql_num_rows($checkStatusCode) > 0){
+      echo "<p>Status Code already exists!</p>";
+    }
+
+  if (is_null($statuscode)){
+      echo "<p>Please enter a Status Code!</P>";
+  }else{
+    if(strlen($statuscode) < 5){
+      echo "<p>Status code entered is too short</p>";
+    }else if(strlen($statuscode) > 5){
+      echo "<p>Status code entered is too long</p>";
+    }else{
+      $splitStatusCode = str_split($statuscode, 1);
+      if(!strcasecmp($splitStatusCode[0], 'S')){
+        echo "<p>Status code needs to start with S";
+      }else {
+        if(!is_numeric($splitStatusCode[1])){
+          echo "<p>Status code needs for numebers after S";
+        }else{
+
+        }
+      }
+    }
 
 
+  }
 
 
 		// Set up the SQL command to add the data into the table
